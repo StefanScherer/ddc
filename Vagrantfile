@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
   config.vm.define :"ucp-1" do |cfg|
     cfg.vm.box = "ubuntu1404"
     cfg.vm.hostname = "ucp-1"
-#    cfg.vm.provision "shell", path: "scripts/install-docker-cs.sh"
+    cfg.vm.provision "shell", path: "scripts/install-docker-cs.sh"
     cfg.vm.provision "shell", path: "scripts/install-ucp.sh"
     cfg.vm.network :forwarded_port, guest: 443, host: 443, id: "ucp", auto_correct: true
     cfg.vm.provider "vcloud" do |v|
